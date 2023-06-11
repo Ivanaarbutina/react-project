@@ -1,9 +1,13 @@
 * {
   box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+  
+ 
 }
 
 body {
   margin: 0;
+ 
 }
 
 :root {
@@ -18,3 +22,10 @@ body {
   --border-rounded: 0.5rem;
 }
 @import "./components/button.scss";
+@import "./components/components.scss";
+@import "./components/container.scss";
+@import "./components/header.scss";
+@import "./components/home.scss";
+@import "./components/input.scss";
+@import "./components/table.scss";
+@import "./base/vars.scss";

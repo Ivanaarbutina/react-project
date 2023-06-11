@@ -1,0 +1,31 @@
+@import "./../base/vars.scss";
+
+.input {
+  padding: 0.5rem;
+  border: 2px solid $silver;
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  
+
+  & label{
+   color: $silver;
+  }
+
+  @media (min-width: $media-sm) {
+    width: 15rem;
+  }
+
+  &--rounded {
+    border-radius: 0.5rem;
+    display: flex;
+    width: 100%; 
+
+    @media (min-width: $media-sm) {
+      width: 15rem;
+    }
+  }
+  &__validation {
+    color: red;
+  }
+}
