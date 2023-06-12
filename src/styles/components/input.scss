@@ -1,15 +1,51 @@
 @import "./../base/vars.scss";
 
 .input {
-  padding: 0.5rem;
-  border: 2px solid $silver;
+  padding: 0.5rem 1rem;
+  padding-right: 2.25rem;
+  border: 1px solid $silver;
   display: flex;
   margin-bottom: 1rem;
   width: 100%;
-  
+  border-radius: var(--border-rounded);
 
-  & label{
-   color: $silver;
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-gray-500);
+  }
+
+  &__wrapper {
+    display: inline-block;
+    position: relative;
+    max-width: 17.5rem;
+  }
+  &--has-icon {
+    padding-right: 2.25rem;
+  }
+
+  &__icon {
+    position: absolute;
+    right: 0.625rem;
+    top: 50%;
+
+    & svg {
+      transform: translateY(-50%);
+    }
+  }
+  & label {
+    color: $silver;
+  }
+
+  &--lg {
+    width: 100%;
+  }
+
+  &--md {
+    width: 50%;
+  }
+
+  &--sm {
+    width: 20%;
   }
 
   @media (min-width: $media-sm) {
@@ -19,7 +55,7 @@
   &--rounded {
     border-radius: 0.5rem;
     display: flex;
-    width: 100%; 
+    width: 100%;
 
     @media (min-width: $media-sm) {
       width: 15rem;

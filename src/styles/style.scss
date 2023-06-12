@@ -1,19 +1,17 @@
 * {
   box-sizing: border-box;
-  font-family: 'Quicksand', sans-serif;
-  
- 
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
   margin: 0;
- 
 }
 
 :root {
   //colors
   --color-white: #fff;
   --color-black: #333;
+  --color-gray-500: #636262;
   --color-red-500: #c0392b;
   --color-green-500: #27ae60;
   --color-blue-500: #2980b9;
@@ -24,6 +22,7 @@ body {
 @import "./components/button.scss";
 @import "./components/components.scss";
 @import "./components/container.scss";
+@import "./components/devider.scss";
 @import "./components/header.scss";
 @import "./components/home.scss";
 @import "./components/input.scss";

@@ -1,19 +1,20 @@
+import { ReactNode } from "react";
+
 type InputProps = {
-  rounded?: boolean;
-  label?: string;
-  validation?: string;
+  placeholder?: string;
+  icon?: ReactNode;
+  size?: "lg" | "md" | "sm";
 };
 
-const Input = ({rounded, label, validation}: InputProps) => {
+const Input = ({ placeholder = "", icon, size }: InputProps) => {
   return (
-    <div>
-   {label ? <label htmlFor={label}>{label}</label> : ""} <br></br>
+    <div className="input__wrapper">
       <input
-        id={label}
-        className={`input ${rounded ? "input--rounded" : ""}`}
+        placeholder={placeholder}
+        className={`input ${icon && "input--has-icon"} input input--${size}`}
         type="text"
       />
-      {validation ? <p className="input__validation">{validation}</p> : ""}
+      <div className="input__icon">{icon}</div>
     </div>
   );
 };
