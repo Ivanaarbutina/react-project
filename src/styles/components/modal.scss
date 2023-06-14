@@ -1,0 +1,32 @@
+.modal {
+  width: 40%;
+  border: 1px solid var(--color-gray-400);
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: var(--color-gray-300);
+  position: relative;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icon svg {
+    position: absolute;
+    top: 1rem;
+    left: 22.5rem;
+  }
+
+  //sizes
+  &--sm {
+    padding: 1rem;
+  }
+
+  &--md {
+    padding: 1.5rem;
+  }
+
+  &--lg {
+    padding: 2rem;
+  }
+}
