@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import Devider from "./devider";
 
 type ContainerProp = {
   children: ReactNode;
@@ -6,7 +7,11 @@ type ContainerProp = {
 };
 
 const Container = ({ children }: ContainerProp) => {
-  return <div className="container">{children}</div>;
+  return <div className="container">
+    <Devider/>
+    {children}
+    <Devider/>
+    </div>;
 };
 
 export default Container;

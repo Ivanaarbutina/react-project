@@ -6,7 +6,7 @@ type DeviderProp = {
 const Devider = ({ marginTop, marginBottom }: DeviderProp) => {
   return (
     <div
-      className={`devider devider--mb--${marginBottom} devider devider--mt${marginTop}`}
+      className={`devider devider--mb--${marginBottom} devider devider--mt--${marginTop}`}
     ></div>
   );
 };
