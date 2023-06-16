@@ -4,12 +4,11 @@ $header-nav-link-color: #ccc;
 $header-nav-link-hover-color: #fff;
 
 .header {
-  
-    background-color: #f1f1f1;
-    background-image: linear-gradient(45deg, #141313, #abada9);
-    background-size: 400% 400%;
-    animation: gradientAnimation 10s ease infinite;
-   padding: 2rem;
+  background-color: #f1f1f1;
+  background-image: linear-gradient(45deg, #141313, #abada9);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  padding: 2rem;
   @keyframes gradientAnimation {
     0% {
       background-position: 0% 50%;
@@ -24,13 +23,13 @@ $header-nav-link-hover-color: #fff;
 }
 
 .header__title {
-  color:rgb(242, 88, 22);
+  color: rgb(242, 88, 22);
   font-size: 2.6rem;
   margin-bottom: 16px;
 }
 
-.header__nav {
-  ul {
+.header__section {
+  &__nav {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -39,31 +38,27 @@ $header-nav-link-hover-color: #fff;
   .header__menu-item {
     display: inline-block;
     margin-right: 16px;
+    color: $header-nav-link-color;
+    text-decoration: none;
+    font-size: 1.3rem;
 
-    a {
-      color: $header-nav-link-color;
-      text-decoration: none;
-      font-size: 1.3rem;
+    &:hover {
+      color: rgb(255, 254, 252);
+    }
 
-      &:hover {
-        color:rgb(255, 254, 252) ;
-      }
-
-      &:hover {
-        &::after {
-          width: 100%;
-        }
-      }
-
+    &:hover {
       &::after {
-        content: "";
-        display: block;
-        width: 0;
-        height: 2px;
-        background-color:rgb(242, 121, 22) ;
-        transition: all 250ms ease-in-out;
+        width: 100%;
       }
     }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background-color: rgb(242, 121, 22);
+      transition: all 250ms ease-in-out;
     }
   }
-
+}
