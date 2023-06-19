@@ -17,6 +17,7 @@ body {
   --color-red-500: #c0392b;
   --color-green-500: #27ae60;
   --color-blue-500: #2980b9;
+  --color-orange-500: #e16b0a;
 
   //border
   --border-rounded: 0.5rem;
@@ -25,9 +26,11 @@ body {
 @import "./components/components.scss";
 @import "./components/container.scss";
 @import "./components/devider.scss";
+@import "./components/field.scss";
 @import "./components/header.scss";
 @import "./components/home.scss";
 @import "./components/input.scss";
 @import "./components/modal.scss";
+@import "./components/sidebar.scss";
 @import "./components/table.scss";
 @import "./base/vars.scss";

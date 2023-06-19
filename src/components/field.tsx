@@ -1,11 +1,21 @@
-import Input from "./input";
+type FieldType = {
+  id: string;
+  value: string;
+  label: string;
+  onChange: (value: string) => void;
+};
 
-const Field = () => {
+const Field = ({ id, value, label, onChange }: FieldType) => {
   return (
-    <>
-      <label for="fname">First Name</label>
-      <Input />
-    </>
+    <div className="field">
+      <label htmlFor={id}>{label}</label>
+      <input
+        id={id}
+        onChange={(e) => onChange(e.target.value)}
+        value={value}
+        type="text"
+      />
+    </div>
   );
 };
 

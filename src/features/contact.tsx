@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../components/button";
-import Input from "../components/input";
+import Field from "../components/field";
 
 type ValuesType = {
   [key: string]: string;
@@ -21,24 +21,28 @@ const Contact = () => {
     setInputsValue(newState);
   };
   return (
-    <>
-      <Input
-        placeholder="First Name"
+    <div className="contact">
+      <Field
+        id="First Name"
         onChange={(value: string) => handleInputsValue(value, "lastName")}
         value="First Name"
+        label="First Name"
       />
-      <Input
-        placeholder="Last Name"
+      <Field
+        id="Last Name"
         value="Last Name"
         onChange={(value: string) => handleInputsValue(value, "lastName")}
+        label="Last Name"
       />
-      <Input
-        placeholder="Email"
+      <Field
+        id="Email"
         value="Email"
         onChange={(value: string) => handleInputsValue(value, "lastName")}
+        label="Email"
       />
+
       <Button text="send" />
-    </>
+    </div>
   );
 };
 
