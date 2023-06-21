@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../components/button";
 import Field from "../components/field";
+import Container from "../components/container";
 
 type ValuesType = {
   [key: string]: string;
@@ -22,26 +23,29 @@ const Contact = () => {
   };
   return (
     <div className="contact">
+      <Container>
       <Field
         id="First Name"
         onChange={(value: string) => handleInputsValue(value, "lastName")}
-        value="First Name"
+        value=""
         label="First Name"
       />
       <Field
         id="Last Name"
-        value="Last Name"
+        value=""
         onChange={(value: string) => handleInputsValue(value, "lastName")}
         label="Last Name"
       />
       <Field
         id="Email"
-        value="Email"
+        value=""
         onChange={(value: string) => handleInputsValue(value, "lastName")}
         label="Email"
       />
 
-      <Button text="send" />
+      <Button text="send" size="md" />
+      </Container>
+     
     </div>
   );
 };

@@ -29,13 +29,11 @@ const Home = () => {
   };
   return (
     <div className="home">
-      <div>
-        <h2>Dobrodošli na moju web stranicu!</h2>
-      </div>
+      
       <div className="components">
         <Container>
           <h2>Button</h2>
-          <Button text="Click me" />
+          <Button text="Click me"  />
         </Container>
         <Container>
           <h2>Input</h2>

@@ -14,4 +14,13 @@
   &--blue {
     background-color: var(--color-blue-500);
   }
+  &--sm{
+    padding: 0.2rem 1rem;
+  }
+  &--md{
+    padding:0.6rem 2rem;
+  }
+  &--lg{
+    padding: 1.1rem 3rem;
+  }
 }

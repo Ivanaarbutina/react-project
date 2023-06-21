@@ -1,26 +1,46 @@
 import { NavLink } from "react-router-dom";
+import { LinkType } from "./sidebar";
 
 type HeaderProps = {
   toggleSidebar: () => void;
+  onClose:() => void;
 };
 
-const Header = ({ toggleSidebar }: HeaderProps) => {
+const headerLinks: LinkType[] = [
+  {
+    path: "/",
+    label: "Home",
+  },
+  {
+    path: "/contact",
+    label: "Contact",
+  },
+];
+
+const Header = ({ toggleSidebar, onClose }: HeaderProps) => {
   return (
-    <header className="header">
-      <h1 className="header__title">My web page</h1>
-      <div className="header__section">
-        <span className="material-symbols-outlined">rocket_launch</span>
-        <img onClick={toggleSidebar} />
-        <nav className="header__section__nav">
-          <NavLink to="/" className="header__menu-item">
-            Home
-          </NavLink>
-          <NavLink to="/contact" className="header__menu-item">
-            Contact
-          </NavLink>
-        </nav>
-      </div>
-    </header>
+    <div className="header__wrapper">
+     <header className="header">
+        <h1 className="header__title">My web page</h1>
+        <div className="header__section" >
+          <span className="material-symbols-outlined" onClick={toggleSidebar}>rocket_launch</span>
+          <nav className="header__section__nav">
+          {headerLinks.map((link) => {
+              return (
+                <NavLink 
+                  key={link.path}
+                  to={link.path}
+                  onClick={onClose} 
+                  className="header__menu-item">
+                  {link.label}
+                </NavLink>
+                );
+              })}
+          </nav>
+        </div>
+      </header>
+    </div>
+   
   );
 };
 

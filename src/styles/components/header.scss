@@ -4,11 +4,11 @@ $header-nav-link-color: #ccc;
 $header-nav-link-hover-color: #fff;
 
 .header {
-  background-color: #f1f1f1;
-  background-image: linear-gradient(45deg, #141313, #abada9);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
-  padding: 2rem;
+max-width: 62rem;
+margin: 0 auto;
+
+
+  
   @keyframes gradientAnimation {
     0% {
       background-position: 0% 50%;
@@ -20,6 +20,16 @@ $header-nav-link-hover-color: #fff;
       background-position: 0% 50%;
     }
   }
+
+  &__wrapper{
+    background-color: #f1f1f1;
+    background-image: linear-gradient(45deg, #141313, #abada9);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    padding: 2rem;
+   
+   
+  }
 }
 
 .header__title {
@@ -29,6 +39,9 @@ $header-nav-link-hover-color: #fff;
 }
 
 .header__section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   &__nav {
     list-style: none;
     margin: 0;
@@ -37,7 +50,7 @@ $header-nav-link-hover-color: #fff;
 
   .header__menu-item {
     display: inline-block;
-    margin-right: 16px;
+    margin-left: 1.7rem;
     color: $header-nav-link-color;
     text-decoration: none;
     font-size: 1.3rem;
@@ -65,4 +78,10 @@ $header-nav-link-hover-color: #fff;
 
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 3rem;
+  color: $header-nav-link-color;
+  transition: all 250ms ease-in-out;
+  &:hover{
+    color:rgb(242, 88, 22) ;
+  }
 }
