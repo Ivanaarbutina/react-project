@@ -1,0 +1,48 @@
+/* Styling the border and box
+        effect of the progress bar*/
+.progress-bar {
+  width: 50rem;
+  height: 0.4rem;
+  margin-top: 1rem;
+  border: 1px solid var(--color-gray-500);
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgb(245, 106, 0);
+
+  &--sm {
+    width: 20rem;
+  }
+  &--md {
+    width: 40rem;
+  }
+  &--lg {
+    width: 58rem;
+  }
+}
+
+.percentage {
+  display: block;
+  height: 100%;
+  border-radius: 1rem;
+  animation: progress 1500ms ease-in 1;
+  width: 65%;
+  &--orange {
+    background-color: var(--color-orange-500);
+  }
+  &--red {
+    background-color: var(--color-red-500);
+  }
+  &--green {
+    background-color: var(--color-green-500);
+  }
+  &--40 {
+    width: 40%;
+  }
+  &--60 {
+    width: 60%;
+  }
+}
+@keyframes progress {
+  from {
+    width: 0;
+  }
+}
