@@ -20,24 +20,32 @@ body {
   --color-gray-200: #f5f3f3;
   --color-red-500: #c0392b;
   --color-green-500: #27ae60;
-  --color-green-500-25: rgb(39, 174, 96,0.25);
+  --color-green-500-25: rgb(39, 174, 96, 0.25);
   --color-blue-500: #2980b9;
   --color-orange-500: #ef5b2a;
   --color-orange-500-25: rgb(239, 91, 42, 0.25);
 
   //border
   --border-rounded: 0.5rem;
+
+  //responsive-breack-points
+  $media-sm: 37.5em;
+  $media-md: 53em;
+  $media-lg: 64em;
 }
 @import "./components/button.scss";
+@import "./components/card.scss";
 @import "./components/components.scss";
 @import "./components/container.scss";
 @import "./components/devider.scss";
 @import "./components/field.scss";
+@import "./utiles/grid.scss";
 @import "./components/header.scss";
 @import "./components/home.scss";
 @import "./components/input.scss";
 @import "./components/loader.scss";
 @import "./components/modal.scss";
+@import "./components/pagination.scss";
 @import "./components//progress-bar.scss";
 @import "./components/select.scss";
 @import "./components/sidebar.scss";

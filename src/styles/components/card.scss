@@ -1,0 +1,13 @@
+.card {
+  background-color: var(--color-orange-500);
+  padding: 1rem;
+
+  &__header {
+    display: flex;
+  }
+  &__row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

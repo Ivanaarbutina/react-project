@@ -1,0 +1,10 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  &__item {
+    padding: 1rem;
+    border-radius: 2rem;
+    background-color: var(--color-orange-500);
+    font-size: 3rem;
+  }
+}
