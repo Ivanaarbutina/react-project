@@ -12,13 +12,18 @@ body {
   --color-white: #fff;
   --color-black: #333;
   --color-gray-500: #636262;
+  --color-gray-500-25: rgb(99, 98, 98, 0.25);
+  --color-gray-800-25: rgba(75, 75, 75, 0.25);
   --color-gray-400: #818080;
   --color-gray-300: #bcb9b9;
   --color-gray-200: #d7d4d4;
+  --color-gray-200: #f5f3f3;
   --color-red-500: #c0392b;
   --color-green-500: #27ae60;
+  --color-green-500-25: rgb(39, 174, 96,0.25);
   --color-blue-500: #2980b9;
   --color-orange-500: #ef5b2a;
+  --color-orange-500-25: rgb(239, 91, 42, 0.25);
 
   //border
   --border-rounded: 0.5rem;
@@ -31,8 +36,10 @@ body {
 @import "./components/header.scss";
 @import "./components/home.scss";
 @import "./components/input.scss";
+@import "./components/loader.scss";
 @import "./components/modal.scss";
 @import "./components//progress-bar.scss";
+@import "./components/select.scss";
 @import "./components/sidebar.scss";
 @import "./components/table.scss";
 @import "./base/vars.scss";

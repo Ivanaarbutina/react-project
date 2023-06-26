@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Button from "../components/button";
-import Field from "../components/field";
-import Container from "../components/container";
+import Button from "../../components/button";
+import Field from "../../components/field";
+import Container from "../../components/container";
 
 type ValuesType = {
   [key: string]: string;

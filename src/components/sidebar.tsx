@@ -18,7 +18,11 @@ const linkList: LinkType[] = [
   {
     path: "/loader",
     label: "Loader",
-  }
+  },
+  {
+    path: "/select",
+    label: "Select",
+  },
 ];
 
 const Sidebar = ({ isOpen, onClose}: SidebarProp) => {
@@ -28,6 +32,7 @@ const Sidebar = ({ isOpen, onClose}: SidebarProp) => {
       return(
         <div className="sidebar__link__wrapper">
           <NavLink 
+          key={link.path}
             className="sidebar__link"
             onClick={onClose}
             to={link.path}>

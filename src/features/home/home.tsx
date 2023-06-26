@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Check from "../assets/check";
-import Download from "../assets/download";
-import Button from "../components/button";
-import Container from "../components/container";
-import Devider from "../components/devider";
-import Input from "../components/input";
-import Modal from "../components/modal";
-import Table from "../components/table";
-import ProgresBarPage from "./progress-bar-page";
+import Check from "../../assets/check";
+import Download from "../../assets/download";
+import Button from "../../components/button";
+import Container from "../../components/container";
+import Devider from "../../components/devider";
+import Input from "../../components/input";
+import Modal from "../../components/modal";
+import Table from "../../components/table";
+
 
 const Home = () => {
   type ValuesType = {
@@ -91,10 +91,6 @@ const Home = () => {
         <Container>
           <h2>Devider</h2>
           <Devider />
-        </Container>
-        <Container>
-          <h2>Progress-bar page</h2>
-          <ProgresBarPage />
         </Container>
       </div>
     </div>

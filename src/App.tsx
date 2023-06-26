@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import "./styles/style.scss";
-import Home from "./features/home";
+import Home from "./features/home/home";
 
 import Layout from "./components/layout";
-import NoMatch from "./features/no-match";
-import Contact from "./features/contact";
-import ProgresBar from "./features/progress-bar";
-import ProgresBarPage from "./features/progress-bar-page";
+import NoMatch from "./features/no-match/no-match";
+import Contact from "./features/contact/contact";
+import ProgresBarPage from "./features/progress-bar-page/progress-bar-page";
+import LoaderPage from "./features/loader/loader-page";
+import SelectPage from "./features/select/select-page";
 
 function App() {
   return (
@@ -14,11 +15,9 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="contact" element={<Contact />} />
-        <Route
-          path="progress-bar"
-          element={<ProgresBar color="orange" progress={70} size="lg" />}
-        />
-        <Route path="progress-bar-page" element={<ProgresBarPage />} />
+        <Route path="progress-bar" element={<ProgresBarPage />} />
+        <Route path="loader" element={<LoaderPage />} />
+        <Route path="select" element={<SelectPage />} />
         {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
                 routes for. */}

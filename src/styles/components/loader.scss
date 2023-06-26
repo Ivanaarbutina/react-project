@@ -1,0 +1,38 @@
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: azure;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 1rem;
+  transform: translate3d(-50%, -50%, 0);
+  color: var(--color-orange-500);
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gray-500-25);
+  }
+
+  &__spinner {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 0.3rem solid #c3c3c3; 
+    border-top: 0.3rem solid var(--color-orange-500); 
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
