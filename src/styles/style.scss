@@ -31,13 +31,14 @@ body {
   //border
   --border-rounded: 0.5rem;
   --border-circle: 1000rem;
-  }
+}
 
-  //responsive-breack-points
-  $media-sm: 37.5em;
-  $media-md: 53em;
-  $media-lg: 64em;
+//responsive-breack-points
+$media-sm: 37.5em;
+$media-md: 53em;
+$media-lg: 64em;
 
+@import "./components/animals.scss";
 @import "./components/button.scss";
 @import "./components/card.scss";
 

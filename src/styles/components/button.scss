@@ -14,13 +14,30 @@
   &--blue {
     background-color: var(--color-blue-500);
   }
-  &--sm{
+  &--sm {
     padding: 0.2rem 1rem;
   }
-  &--md{
-    padding:0.6rem 2rem;
+  &--md {
+    padding: 0.6rem 2rem;
   }
-  &--lg{
+  &--lg {
     padding: 1.1rem 3rem;
+  }
+  &--floating {
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    background-color: var(--color-orange-500);
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: var(--border-circle);
+    border: none;
+    &:hover {
+      color: antiquewhite;
+    }
   }
 }

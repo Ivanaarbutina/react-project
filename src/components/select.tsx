@@ -6,24 +6,27 @@ type SelectProps = {
   options: OptionType[];
   onChange: (option: OptionType) => void;
   placeholder?: string;
-
-}
+  defaultValue?: OptionType;
+};
 
 const Select = ({
   options,
   onChange,
   placeholder = "Select an option",
+  defaultValue,
 }: SelectProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [activeOption, setActiveOption] = useState<OptionType | null>(null);
-  return(
+  const [activeOption, setActiveOption] = useState<OptionType | null>(
+    defaultValue ? defaultValue : null
+  );
+  return (
     <div className="select">
       <div
-      className={`select__action ${isActive ? "isActive" : ""}`}
-      onClick={() => setIsActive(!isActive)}
+        className={`select__action ${isActive ? "isActive" : ""}`}
+        onClick={() => setIsActive(!isActive)}
       >
         {activeOption ? activeOption.label : placeholder}
-        <IconChevronDown/>
+        <IconChevronDown />
       </div>
       {isActive && (
         <div className="select__list">
@@ -40,7 +43,7 @@ const Select = ({
               >
                 {option.label}
               </div>
-            )
+            );
           })}
         </div>
       )}

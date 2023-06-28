@@ -20,6 +20,7 @@ function App() {
         <Route path="loader" element={<LoaderPage />} />
         <Route path="select" element={<SelectPage />} />
         <Route path="animals" element={<Animals />} />
+        <Route path="animals/new" element={<>Dosli smo na novi page</>}></Route>
         {/* Using path="*"" means "match anything", so this route
                 acts like a catch-all for URLs that we don't have explicit
                 routes for. */}
