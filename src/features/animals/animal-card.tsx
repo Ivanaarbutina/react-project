@@ -1,5 +1,7 @@
 import { AnimalType } from "./animals";
 import Paw from "./../../assets/Paw_Print.svg";
+import Diet from "./../../assets/diet.png";
+import Forest from "./../../assets/forest-svgrepo-com.svg";
 
 type AnimalCardProp = {
   animal: AnimalType;
@@ -13,11 +15,10 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
       <div className="card">
         <div className="card__header">
           <img
+           className="card__header__img"
             width={"100"}
-            src={`https://source.unsplash.com/random/?${animal.name.replace(
-              " ",
-              "-"
-            )}`}
+            src={`https://source.unsplash.com/random/?${animal.name}`}
+            alt="Animal image"
           />
           <div>
             <div className="card__title">{name}</div>
@@ -27,16 +28,16 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
 
         <div className="card__row">
           <img width={24} src={Paw} />
-          <span>{animalClass}</span>
+          <span className="card__row__text">{animalClass}</span>
         </div>
         <div className="card__row">
-          <span>Icon</span>
-          <span>{diet}</span>
+          <img src={Diet}/>
+          <span className="card__row__text">{diet}</span>
         </div>
 
         <div className="card__row">
-          <span>Icon</span>
-          <span>{habitat}</span>
+          <img src={Forest}/>
+          <span className="card__row__text">{habitat}</span>
         </div>
       </div>
     </div>

@@ -1,9 +1,23 @@
-const Pagination = () => {
+type PaginationProps = {
+  onPaginate: (page:number) => void;
+};
+
+const Pagination = ({onPaginate}:PaginationProps) => {
   return (
     <div className="pagination">
-      <span className="pagination__item">1</span>
-      <span className="pagination__item">2</span>
-      <span className="pagination__item">3</span>
+      {Array(3)
+      .fill("")
+      .map((page, index) => {
+        return(
+         <span 
+          key={index}
+          onClick={() => onPaginate(index +1)}
+          className="pagination__item isActive"
+         >
+          {index + 1}
+         </span>
+        )
+      })}
     </div>
   );
 };
