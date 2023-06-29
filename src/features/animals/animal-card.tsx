@@ -11,7 +11,7 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
   const { name, animalClass, diet, species, habitat } = animal;
 
   return (
-    <div className="grid--primary">
+    <div >
       <div className="card">
         <div className="card__header">
           <img

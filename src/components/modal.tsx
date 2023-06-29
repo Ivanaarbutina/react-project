@@ -1,30 +1,53 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Button from "./button";
 import Close from "../assets/close.tsx";
 
 type ModalProps = {
-  title: string;
   children: ReactNode;
-  size?: "lg" | "md" | "sm";
-  onClick: () => void;
+  title: string;
   isOpen: boolean;
+  //pošto nam onClose i onSuccess ne trebaju vracati nikakav podatak, možemo zagrade ostaviti prazne to znaci da ćemo dobiti samo callback bez podatka
+  onClose: () => void;
+  onSuccess?: () => void;
 };
 
-const Modal = ({ title, children, size, isOpen, onClick }: ModalProps) => {
+const Modal = ({ title, children,  isOpen, onClose, onSuccess }: ModalProps) => {
+
+  useEffect(() => {
+    const bodyElement = document.getElementsByTagName(
+      "body"
+    )[0] as HTMLBodyElement;
+    //nakon što smo dohvatili body element provjeravamo ako je isOpen true onda scroll sakrivamo, a ako nije micemo ga
+    if (isOpen) {
+      bodyElement.style.overflow = "hidden";
+    } else {
+      bodyElement.style.overflow = "auto";
+    }
+    return () => {
+      console.log("test");
+    };
+    //Svaki puta kad se isOpen prop promjeni nama će se useEffect ponovo okinuti
+  }, [isOpen]);
   return (
     <>
+      {/* Provjeravamo ako je isOpen true onda nam renderiraj modal html ako ne nemoj prikazati ništa */}
       {isOpen && (
-        <div className={`modal modal--${size}`}>
-          <div className="modal__header">
-            <h3>{title}</h3>
-            <div className="modal__icon" onClick={() => onClick()}>
-              <Close />
+        <div>
+          <div className="modal__overlay" onClick={() => onClose()}></div>
+          <div className="modal">
+            <div className="modal__header">
+              <div className="modal__header__title">{title}</div>
+              {/* Pošto ne prosljeđujemo nikakav podatak kroz callback možemo ga pisati skračeno bez arrow funkcije */}
+              <Close className="modal__header__icon" onClick={onClose} />
             </div>
           </div>
           <div className="modal__body">{children}</div>
           <div className="modal__foother">
-            <Button text="click me" />
-            <Button text="me too" color="red" />
+             {/* Provjeravamo ako onSuccess postoji onda nam renderiraj Success 
+                    button jer u suprotnom nam button ne treba ako nemamo akciju koja će 
+                    se na njego klik odviti */}
+              {onSuccess && <Button onClick={onSuccess} text="Ok" />}
+              <Button text="Cancel" color="red" onClick={onClose} />
           </div>
         </div>
       )}

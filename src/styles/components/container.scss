@@ -1,11 +1,11 @@
 $header-background-color: #333;
 
 .container {
-  max-width: 70rem;
+  padding: 0 1rem;
   margin: 2rem auto;
 
   @media (min-width: $media-sm) {
-    padding: 1.5rem;
+    padding: 0 2rem;
   }
 
   & h2 {

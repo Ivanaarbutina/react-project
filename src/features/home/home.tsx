@@ -21,7 +21,7 @@ const Home = () => {
 
   const [inputsValue, setInputsValue] = useState<ValuesType>(obj);
   const [newState, setNewState] = useState<string>("");
-  const [showModal, setShowModal] = useState<boolean>(true);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const handleInputsValue = (value: string, id: string) => {
     const newState: ValuesType = { ...inputsValue };
@@ -63,30 +63,22 @@ const Home = () => {
         </Container>
         <Container>
           <h2>Modal</h2>
-          <button
+          <Button
+          text="Open modal"
             onClick={() => {
               setShowModal(true);
             }}
-          >
-            Open Modal
-          </button>
-          {showModal && (
-            <Modal
-              title="Title"
-              size="lg"
-              onClick={() => {
-                setShowModal(false);
-              }}
-              isOpen={showModal}
-            >
-              <p>
-                Lorem ipsum dolor sit amet consectetur,<br></br> adipisicing
-                elit. Vel cumque laudantium, <br></br>voluptates harum, autem
-                corporis dolor voluptatem<br></br> nam optio magnam laborum
-                velit repellendus. Reiciendis .
-              </p>
-            </Modal>
-          )}
+          />
+          <Modal
+            onSuccess={() => {
+              alert("Success");
+              setShowModal(false);
+            }}
+            isOpen={showModal}
+            title="Moj prvi modal"
+            //kada unutar komponente pozovemo onClose callback ovdje će nam doći kod i izvršit će se sve što napišemo u tijelo arrow funkcije
+            onClose={() => setShowModal(false)}
+            >biohiozzo</Modal>
         </Container>
         <Container>
           <h2>Devider</h2>

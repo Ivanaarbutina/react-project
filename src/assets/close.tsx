@@ -1,4 +1,5 @@
-const Close = () => {
+import { SVGProps } from "react";
+const Close = ({ ...props }: SVGProps<SVGSVGElement>) => {
   return (
     <svg
       width={24}
@@ -7,7 +8,7 @@ const Close = () => {
       viewBox="0 0 24 24"
       stroke-width="1.5"
       stroke="currentColor"
-      className="w-6 h-6"
+      {...props}
     >
       <path
         stroke-linecap="round"

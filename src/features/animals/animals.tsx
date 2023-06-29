@@ -4,7 +4,7 @@ import Pagination from "../../components/pagination";
 import Container from "../../components/container";
 import Loader from "../../components/loader";
 import Select from "../../components/select";
-import Button from "../../components/button";
+import { OptionType } from "../select/select-page";
 import FloatingButton from "../../components/floating-button";
 
 export type AnimalType = {
@@ -15,21 +15,19 @@ export type AnimalType = {
   habitat: string;
 };
 
-//rows per page (limit koliko itema vidimo odjednom)
-
 const noOfItems = 20;
-const rppOptions: optionType[] = [
+const rppOptions: OptionType[] = [
   {
     label: "4 životinje",
-    value: 4,
+    value: "4",
   },
   {
     label: "8 životinja",
-    value: 8,
+    value: "8",
   },
   {
     label: "12 životinja",
-    value: 12,
+    value: "12",
   },
 ];
 
@@ -37,6 +35,7 @@ const Animals = () => {
   const [animals, setAnimals] = useState<AnimalType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
+  //rows per page (limit koliko itema vidimo od jednom)
   const [rpp, setRpp] = useState<number>(8);
 
   const getAnimals = () => {
@@ -55,17 +54,23 @@ const Animals = () => {
   };
 
   useEffect(() => {
-    getAnimals();
+    const numberofPages = Math.ceil(noOfItems / rpp);
+    if ( page > numberofPages) {
+      setPage(numberofPages);
+    } else {
+      getAnimals();
+    }
   }, [page, rpp]);
 
   return (
     <Container>
       <Loader isActive={loading} />
       <div className="animals__header">
-        <h2>Animals</h2>
+        <h2 className="animals__title">Animals</h2>
         <Select
           options={rppOptions}
           onChange={(activeRpp) => setRpp(Number(activeRpp.value))}
+          defaultValue={rppOptions[1]}
         />
       </div>
 

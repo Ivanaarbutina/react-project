@@ -38,22 +38,26 @@ $media-sm: 37.5em;
 $media-md: 53em;
 $media-lg: 64em;
 
-@import "./components/animals.scss";
+//components
 @import "./components/button.scss";
 @import "./components/card.scss";
-
 @import "./components/container.scss";
 @import "./components/devider.scss";
 @import "./components/field.scss";
-@import "./utiles/grid.scss";
 @import "./components/header.scss";
 @import "./components/home.scss";
 @import "./components/input.scss";
 @import "./components/loader.scss";
 @import "./components/modal.scss";
 @import "./components/pagination.scss";
-@import "./components//progress-bar.scss";
 @import "./components/select.scss";
 @import "./components/sidebar.scss";
 @import "./components/table.scss";
-@import "./base/vars.scss";
+
+//pages
+@import "./page/animals.scss";
+@import "./page/progress-bar.scss";
+
+//utils
+@import "./utiles/grid.scss";
+@import "./utiles/vars.scss";
