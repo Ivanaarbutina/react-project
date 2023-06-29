@@ -8,6 +8,7 @@ import { OptionType } from "../select/select-page";
 import FloatingButton from "../../components/floating-button";
 
 export type AnimalType = {
+  id: string;
   name: string;
   species: string;
   animalClass: string;
@@ -37,6 +38,7 @@ const Animals = () => {
   const [page, setPage] = useState<number>(1);
   //rows per page (limit koliko itema vidimo od jednom)
   const [rpp, setRpp] = useState<number>(8);
+  const [noOfItems, setNoOfItems] = useState<number>(0);
 
   const getAnimals = () => {
     setLoading(true);
@@ -53,9 +55,22 @@ const Animals = () => {
       .catch((err) => console.log(err));
   };
 
+  const getAnimalsCount = () => {
+    setLoading(true);
+    fetch(`http://localhost:3000/animals?_page=${page}&_limit=${rpp}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setTimeout(() => {
+          setNoOfItems(data.lenght);
+        }, 300);
+      })
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     const numberofPages = Math.ceil(noOfItems / rpp);
-    if ( page > numberofPages) {
+    if (page > numberofPages) {
       setPage(numberofPages);
     } else {
       getAnimals();

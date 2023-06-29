@@ -2,6 +2,7 @@ import { AnimalType } from "./animals";
 import Paw from "./../../assets/Paw_Print.svg";
 import Diet from "./../../assets/diet.png";
 import Forest from "./../../assets/forest-svgrepo-com.svg";
+import Button from "../../components/button";
 
 type AnimalCardProp = {
   animal: AnimalType;
@@ -11,11 +12,11 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
   const { name, animalClass, diet, species, habitat } = animal;
 
   return (
-    <div >
+    <div>
       <div className="card">
         <div className="card__header">
           <img
-           className="card__header__img"
+            className="card__header__img"
             width={"100"}
             src={`https://source.unsplash.com/random/?${animal.name}`}
             alt="Animal image"
@@ -31,15 +32,16 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
           <span className="card__row__text">{animalClass}</span>
         </div>
         <div className="card__row">
-          <img src={Diet}/>
+          <img src={Diet} />
           <span className="card__row__text">{diet}</span>
         </div>
 
         <div className="card__row">
-          <img src={Forest}/>
+          <img src={Forest} />
           <span className="card__row__text">{habitat}</span>
         </div>
       </div>
+      <Button text="delete" />
     </div>
   );
 };
