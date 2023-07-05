@@ -32,6 +32,9 @@ const Home = () => {
     <div className="home">
       <div className="components">
         <Container>
+        <h2>Hello, welcome to my page !</h2>
+        </Container>
+        <Container>
           <h2>Button</h2>
           <Button text="Click me" />
         </Container>

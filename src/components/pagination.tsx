@@ -20,7 +20,7 @@ const Pagination = ({
       >
         <ChevronLeft />
       </span>
-      {Array(3)
+      {Array(numberOfPages)
         .fill("")
         .map((page, index) => {
           return (

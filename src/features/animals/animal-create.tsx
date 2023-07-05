@@ -5,13 +5,18 @@ import { AnimalType } from "./animals";
 import Button from "../../components/button";
 import { ValuesType } from "../contact/types";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
-const dataHeaders = {
+type InputsType = {
+  id: string;
+  label: string;
+};
+
+export const dataHeaders = {
   "Content-Type": "application/json",
 };
 
-const initialData: AnimalType = {
-  id: "",
+export const initialData: Omit<AnimalType, "id"> = {
   name: "",
   species: "",
   animalClass: "",
@@ -19,11 +24,34 @@ const initialData: AnimalType = {
   habitat: "",
 };
 
+export const baseInputs: InputsType[] = [
+  {
+    id: "name",
+    label: "Name of an animal",
+  },
+  {
+    id: "species",
+    label: "Animal species",
+  },
+  {
+    id: "animalClass",
+    label: "Animal class",
+  },
+  {
+    id: "diet",
+    label: "What this animal eats",
+  },
+  {
+    id: "habitat",
+    label: "Where this animal lives",
+  },
+];
+
 const AnimalCreate = () => {
   const [inputsValue, setInputsValue] = useState<ValuesType>(initialData);
-  const [error, setError] = useState<string>("");
+  const [error, setError] = useState("");
 
-  const navigate =
+  const navigate = useNavigate();
 
   const handleInputsValue = (value: string, id: string) => {
     const newState: ValuesType = { ...inputsValue };
@@ -31,35 +59,48 @@ const AnimalCreate = () => {
     setInputsValue(newState);
   };
 
-  const OnSubmit = (inputsValue: ValuesType) => {
-    
+  const onSubmit = (inputsValue: ValuesType) => {
+    //Varijabala koja označava jeli se dogodio error
     let getOut = false;
-    const errorInputs = "";
-    const keys = Object.keys(inputsValue);
-    // for (let i = 0; i < Object.keys(inputsValue).length; i++)
-    // Object.keys(inputsValue).forEach((key) => {
-    //   console.log(inputsValue[key]);
-    //   if (inputsValue[key] === ""){
+    //String u kojem držimo popis inputa u kojima se dogodio errror
+    let errorInputs = "";
+
+    // Optimiziraniji način
+    // const keys = Object.keys(inputsValue);
+    // for (let i = 0; i < keys.length; i++) {
+    //   console.log(inputsValue[keys[i]]);
+    //   if (inputsValue[keys[i]] === "") {
     //     getOut = true;
-    //     alert("ne moze biti prazno")
+    //     break;
     //   }
-    // });
+    // }
+
+    //Mapiramo sve keyjeve i provjeravamo koji su prazni
     Object.keys(inputsValue).forEach((key) => {
       if (inputsValue[key] === "") {
         getOut = true;
-        const errorInputs = errorInputs + key + ", ";
+        errorInputs = errorInputs + key + ", ";
       }
     });
-    if (getOut) {
-      setError("moraju svi inputi biti pounjeni");
 
+    if (getOut) {
+      setError(
+        "Moraju svi inputi biti popunjeni kako bi se životinja kreirala. Inputi koji se trebaju popuniti su: " +
+          errorInputs.substring(0, errorInputs.length - 2)
+      );
       return;
+    } else {
+      setError("");
     }
 
+    const obj = inputsValue;
+    obj.id = uuidv4();
+    console.log("json: ", JSON.stringify(obj));
+    //logika za request
     fetch("http://localhost:3000/animals", {
       method: "POST",
       headers: dataHeaders,
-      body: JSON.stringify(inputsValue),
+      body: JSON.stringify(obj),
     })
       .then((res) => {
         if (res.ok) {
@@ -67,7 +108,7 @@ const AnimalCreate = () => {
         }
       })
       .then((data) => {
-        console.log("prošlo je dobro")
+        navigate("/animals");
       })
       .catch((err) => console.log(err));
   };
@@ -75,45 +116,25 @@ const AnimalCreate = () => {
   return (
     <Container>
       <h2>Create a new animal</h2>
-      {
-        error ? <div className="message message--error">{error}</div>
-      }
+      {error && <div className="message message--error">{error}</div>}
+
       <div>
-        <Field
-          id="name"
-          value=""
-          label="name of an animal"
-          onChange={(newValue) => handleInputsValue(newValue, "name")}
-        />
-        <Field
-          id="species"
-          value=""
-          label="species of an animal"
-          onChange={(newValue) => handleInputsValue(newValue, "species")}
-        />
-        <Field
-          id="animalClass"
-          value=""
-          label="animalClass"
-          onChange={(newValue) => handleInputsValue(newValue, "animalClass")}
-        />
-        <Field
-          id="diet"
-          value=""
-          label="diet"
-          onChange={(newValue) => handleInputsValue(newValue, "diet")}
-        />
-        <Field
-          id="habitat"
-          value=""
-          label="habitat"
-          onChange={(newValue) => handleInputsValue(newValue, "habitat")}
-        />
+        {baseInputs.map((field) => {
+          return (
+            <Field
+              key={field.id}
+              id={field.id}
+              value={inputsValue[field.id]}
+              label={field.label}
+              onChange={(newValue) => handleInputsValue(newValue, field.id)}
+            />
+          );
+        })}
       </div>
-      <Button text="dodaj zivotinju" onClick={() => OnSubmit(inputsValue)} />
-      <Button text="delete"/>
+      <Button text="Dodaj životinju" onClick={() => onSubmit(inputsValue)} />
     </Container>
   );
 };
+
 
 export default AnimalCreate;

@@ -7,6 +7,7 @@ type InputProps = {
   size?: "lg" | "md" | "sm";
   value: string;
   onChange: (value: string) => void;
+  name?:string;
 };
 
 const Input = ({
@@ -16,6 +17,7 @@ const Input = ({
   size = "md",
   value,
   onChange,
+  name,
 }: InputProps) => {
   return (
     <div className="input__wrapper">
@@ -23,6 +25,7 @@ const Input = ({
         disabled={disabled}
         onChange={(e) => onChange(e.target.value)}
         value={value}
+        id={name}
         placeholder={placeholder}
         className={`input ${icon && "input--has-icon"} input--${size} `}
         type="text"

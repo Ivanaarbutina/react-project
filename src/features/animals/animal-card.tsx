@@ -6,10 +6,11 @@ import Button from "../../components/button";
 
 type AnimalCardProp = {
   animal: AnimalType;
+  onDelete: (id:string) => void;
 };
 
-const AnimalCard = ({ animal }: AnimalCardProp) => {
-  const { name, animalClass, diet, species, habitat } = animal;
+const AnimalCard = ({ animal, onDelete }: AnimalCardProp) => {
+  const { name, animalClass, diet, species, habitat, id } = animal;
 
   return (
     <div>
@@ -40,8 +41,9 @@ const AnimalCard = ({ animal }: AnimalCardProp) => {
           <img src={Forest} />
           <span className="card__row__text">{habitat}</span>
         </div>
+        <Button size="sm" text="delete" onClick={() => onDelete(id)} color="red" />
       </div>
-      <Button text="delete" />
+    
     </div>
   );
 };

@@ -1,3 +1,5 @@
+import Input from "./input";
+
 type FieldType = {
   id: string;
   value: string;
@@ -8,13 +10,8 @@ type FieldType = {
 const Field = ({ id, value, label, onChange }: FieldType) => {
   return (
     <div className="field">
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        onChange={(e) => onChange(e.target.value)}
-        value={value}
-        type="text"
-      />
+      <label htmlFor={id}>{label ? label : id}</label>
+      <Input name={id} value={value} onChange={onChange}/>
     </div>
   );
 };

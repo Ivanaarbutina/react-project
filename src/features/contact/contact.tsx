@@ -2,19 +2,17 @@ import { useState } from "react";
 import Button from "../../components/button";
 import Field from "../../components/field";
 import Container from "../../components/container";
+import { ValuesType } from "./types";
 
-type ValuesType = {
-  [key: string]: string;
-};
 
-const obj: ValuesType = {
+const initialData: ValuesType = {
   firstName: "",
   lastName: "",
   email: "",
 };
 
 const Contact = () => {
-  const [inputsValue, setInputsValue] = useState<ValuesType>(obj);
+  const [inputsValue, setInputsValue] = useState<ValuesType>(initialData);
 
   const handleInputsValue = (value: string, id: string) => {
     const newState: ValuesType = { ...inputsValue };
@@ -24,28 +22,32 @@ const Contact = () => {
   return (
     <div className="contact">
       <Container>
+       
       <Field
-        id="First Name"
-        onChange={(value: string) => handleInputsValue(value, "lastName")}
-        value=""
+        id="firstName"
+        onChange={(value: string) => handleInputsValue(value, "firstName")}
+        value={inputsValue.firstName}
         label="First Name"
       />
       <Field
-        id="Last Name"
-        value=""
+        id="lastName"
+        value={inputsValue.lastName}
         onChange={(value: string) => handleInputsValue(value, "lastName")}
         label="Last Name"
       />
       <Field
-        id="Email"
-        value=""
-        onChange={(value: string) => handleInputsValue(value, "lastName")}
+        id="email"
+        value={inputsValue.email}
+        onChange={(value: string) => handleInputsValue(value, "email")}
         label="Email"
       />
 
-      <Button text="send" size="md" />
+      <Button 
+       text="send" 
+       size="md" 
+       onClick={() => console.log(inputsValue)}
+       />
       </Container>
-     
     </div>
   );
 };
