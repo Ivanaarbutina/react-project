@@ -10,6 +10,7 @@ import LoaderPage from "./features/loader/loader-page";
 import SelectPage from "./features/select/select-page";
 import Animals from "./features/animals/animals";
 import AnimalCreate from "./features/animals/animal-create";
+import NewHome from "./components/new-home";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="new-home" element={<NewHome />} />
         <Route path="progress-bar" element={<ProgresBarPage />} />
         <Route path="loader" element={<LoaderPage />} />
         <Route path="select" element={<SelectPage />} />
